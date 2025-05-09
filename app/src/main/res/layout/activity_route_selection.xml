@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Поле для початкової точки -->
+    <EditText
+        android:id="@+id/startPointEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Початкова точка (адреса або 'Поточне місце')"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/selectStartButton"
+        android:layout_marginEnd="8dp"/>
+
+    <!-- Кнопка для вибору початкової точки на карті -->
+    <Button
+        android:id="@+id/selectStartButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Вибрати"
+        android:textSize="12sp"
+        app:layout_constraintTop_toTopOf="@id/startPointEditText"
+        app:layout_constraintBottom_toBottomOf="@id/startPointEditText"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Поле для кінцевої точки -->
+    <EditText
+        android:id="@+id/endPointEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Кінцева точка (адреса)"
+        app:layout_constraintTop_toBottomOf="@id/startPointEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/selectEndButton"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"/>
+
+    <!-- Кнопка для вибору кінцевої точки на карті -->
+    <Button
+        android:id="@+id/selectEndButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Вибрати"
+        android:textSize="12sp"
+        app:layout_constraintTop_toTopOf="@id/endPointEditText"
+        app:layout_constraintBottom_toBottomOf="@id/endPointEditText"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Карта для вибору точки -->
+    <org.osmdroid.views.MapView
+        android:id="@+id/mapView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/endPointEditText"
+        app:layout_constraintBottom_toTopOf="@id/buildRouteButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Кнопка для побудови маршруту -->
+    <Button
+        android:id="@+id/buildRouteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Побудувати маршрут"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Плаваюча кнопка для визначення мого місцезнаходження -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/myLocationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:contentDescription="Моє місцезнаходження"
+        app:layout_constraintBottom_toBottomOf="@id/mapView"
+        app:layout_constraintEnd_toEndOf="@id/mapView"
+        android:src="@android:drawable/ic_menu_mylocation"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
